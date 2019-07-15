@@ -10,7 +10,6 @@
   <style> body{padding:0; margin:0;} </style>
 <div class="topnav">
     <button class="btn browser">Browser</button>
-    <input class="inp" type="text" placeholder="Neurons"></input>
     <button id="myBtn" class="btn browser" >Add Layer</button>
     <div style="text-align: center;">
         <!-- <div class="specCol">
@@ -31,14 +30,26 @@
 <div id="myModal" class="modal">
 
         <!-- Modal content -->
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <p>Some text in the Modal..</p>
-        </div>
-      
-      </div>
+         <span class="close" style="text-align: right;"></span>
+         <h1 style="text-align: center;">Add Layer</h1>
+         <input id="neurons" class="inp" type="text" placeholder="Neurons"></input>
+         <select name="Type" id="type" place>
+                <option value="volvo">Feed Forward</option>
+                <option value="saab">LSTM</option>
+                <option value="mercedes">GRU</option>
+                <option value="audi">Convolutional</option>
+         </select>
+         <select name="Activation" id="activation" place>
+                <option value="relu">Relu</option>
+                <option value="softmax">Softmax</option>
+                <option value="linear">Linear</option>
+                <option value="sigmoid">Sigmoid</option>
+         </select>
+         <button id="add" style="padding: 1% 4%;" class="btn browser">Add</button>
+</div>
 
 </body>
+
 <script src="../src/p5.min.js"></script>
 <script src="../src/script.js"></script>
 </html>

@@ -1,7 +1,8 @@
-let arch = [6,13,10,4]
+let arch = []
 let layers = [];
 let x 
 let y 
+let loads = 0;
 
 
 var windowTopBar = document.createElement('div')
@@ -18,21 +19,31 @@ setInterval(()=>{
 let newx = document.body.clientWidth;
 let newy = document.documentElement.scrollHeight;
 if(newx !== x || newy !== y){
+refresh()
+}
+x = newx;
+y = newy;
+},100)
 
+function refresh(){
   clear();
   layers = []
   resizeCanvas(1, 1);
   resizeCanvas(document.body.clientWidth * .98, document.documentElement.scrollHeight *.85);
   // createCanvas(document.body.clientWidth * .98, document.documentElement.scrollHeight *.87);
+  layers.length = 0;
   for(let i = 0;i<arch.length;i++){
     drawRow(arch[i], i+.5);
   }
   
   connect();
 }
-x = newx;
-y = newy;
-},100)
+
+document.getElementById('add').addEventListener('click', function(){
+  let neurons = document.getElementById('neurons').value;
+  arch.push(neurons);
+  refresh();
+})
 
 function setup() {
   createCanvas(document.body.clientWidth * .98, document.documentElement.scrollHeight *.87);
@@ -42,18 +53,18 @@ function setup() {
 function draw() {
   background('#062532');
 
+  layers.length = 0;
   for(let i = 0;i<arch.length;i++){
     drawRow(arch[i], i+.5);
   }
   
   connect();
-   
   }
 
 
 
-  function connect(){
-    console.log(layers.length);
+  async function connect(){
+    loads++
     for (let index = 0; index < layers.length; index++) {
       const layer = layers[index];
       
@@ -64,9 +75,8 @@ function draw() {
         }
         return
       };
-      if(index > 0 && index !== layers.length-1){
+      if( index !== layers.length-1){
         for (let i = 0; i < layer.length; i++) {
-          console.log(index);
           const node = layer[i];
            for (let j = 0; j < layers[index+1].length; j++) {
              const node2 = layers[index+1][j];
@@ -77,9 +87,13 @@ function draw() {
               stroke("#c7eaf8");
               // stroke(r,g,b,a);
               strokeWeight(.5);
-              line(node.x, node.y, node2.x, node2.y);
+              if(index !== layers.length-1){
+                line(node.x, node.y, node2.x, node2.y);
+              }
+              
            }
            circle(node.x, node.y, node.size)
+           
         }
       }
     
@@ -119,7 +133,10 @@ function drawRow(nodes, numberLayer){
   }
   y3 -= height * dist
   }
-  layers.push(layer);
+  if(layer.length>0){
+    layers.push(layer);
+  }
+  
 }
 
 
@@ -178,16 +195,33 @@ var span = document.getElementsByClassName("close")[0];
 // When the user clicks on the button, open the modal 
 btn.onclick = function() {
   modal.style.display = "block";
+  document.querySelector('.topnav').classList.add("blurred");
+  document.querySelector('canvas').classList.add("blurred");
 }
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
+  document.querySelector('.topnav').classList.remove("blurred");
+  document.querySelector('canvas').classList.remove("blurred");
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target === modal) {
     modal.style.display = "none";
+    document.querySelector('.topnav').classList.remove("blurred");
+    document.querySelector('canvas').classList.remove("blurred");
   }
+}
+
+
+
+
+
+
+
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
