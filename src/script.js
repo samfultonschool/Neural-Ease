@@ -1,4 +1,4 @@
-let arch = [5,8,6,3]
+let arch = [6,13,10,4]
 let layers = [];
 let x 
 let y 
@@ -75,6 +75,7 @@ function draw() {
              b = random(100); // b is a random number between 0 - 100
              a = random(200,255); // a is a random number between 200 - 255
               stroke("#c7eaf8");
+              // stroke(r,g,b,a);
               strokeWeight(.5);
               line(node.x, node.y, node2.x, node2.y);
            }
