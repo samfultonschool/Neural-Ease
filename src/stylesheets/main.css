@@ -1,0 +1,141 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #c7eaf8;
+}
+
+.spec{
+    font-size: 120%;
+}
+
+.specCol{
+    float: left;
+    padding-right: 1%;
+    padding-left: 1%;
+    border-left: 2px solid #0eff25;
+}
+.rightBar{
+  border-right: 2px solid #0eff25;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: transparent;
+ 
+  border-bottom: 2px solid #c7eaf8;
+  border-radius: 5px;
+}
+
+.topnav a {
+  float: left;
+  color: #c7eaf8;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.mini{
+    outline:none;
+  -webkit-app-region: no-drag;
+  border: 2px solid #c7eaf8;
+  border-radius: 10px;
+  background-color: transparent;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #c7eaf8;
+  padding: .2% 1%;
+  font-size: 17px;
+  clear:both;
+}
+
+.btn {
+  outline:none;
+  -webkit-app-region: no-drag;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: transparent;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: black;
+  padding: .2% 1%;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+/* Green */
+.browser {
+  border-color: #c7eaf8;
+  color: #c7eaf8;
+  margin: 1% 2%;
+}
+
+.browser:hover {
+  background-color: #c7eaf8;
+  color: #062532;
+}
+
+/* Blue */
+.info {
+  border-color: #2196F3;
+  color: #c7eaf8
+}
+
+.info:hover {
+  background: #2196F3;
+  color: white;
+}
+
+/* Orange */
+.warning {
+  border-color: #ff9800;
+  color: orange;
+}
+
+.warning:hover {
+  background: #ff9800;
+  color: white;
+}
+
+/* Red */
+.danger {
+  border-color: #f44336;
+  color: red
+}
+
+.danger:hover {
+  background: #f44336;
+  color: white;
+}
+
+/* Gray */
+.default {
+  border-color: #e7e7e7;
+  color: black;
+}
+
+.default:hover {
+  background: #e7e7e7;
+}
+
+
+
+
+
+
+
+
+
+
+
