@@ -3,8 +3,7 @@
 <head style="-webkit-app-region: drag">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../src/stylesheets/main.css">
-<script src="../src/p5.min.js"></script>
-<script src="../src/script.js"></script>
+
 </head>
 
 <body bgcolor="#062532" style="-webkit-app-region: drag">
@@ -12,7 +11,7 @@
 <div class="topnav">
     <button class="btn browser">Browser</button>
     <input class="inp" type="text" placeholder="Neurons"></input>
-    <button class="btn browser" >Add Layer</button>
+    <button id="myBtn" class="btn browser" >Add Layer</button>
     <div style="text-align: center;">
         <!-- <div class="specCol">
             <p class="spec">Gen Time: 64 ms</p>
@@ -29,5 +28,17 @@
     </div>
 </div>
 
+<div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>Some text in the Modal..</p>
+        </div>
+      
+      </div>
+
 </body>
+<script src="../src/p5.min.js"></script>
+<script src="../src/script.js"></script>
 </html>
