@@ -129,6 +129,12 @@ select{
   cursor: pointer;
 }
 
+.top {
+  border-color: #c7eaf8;
+  color: #c7eaf8;
+  margin: 1% .4%;
+}
+
 /* Green */
 .browser {
   border-color: #c7eaf8;

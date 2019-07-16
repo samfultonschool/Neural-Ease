@@ -45,6 +45,12 @@ document.getElementById('add').addEventListener('click', function(){
   refresh();
 })
 
+document.getElementById('reset').addEventListener('click', function(){
+  layers.length = 0;
+  arch.length = 0;
+  refresh();
+})
+
 function setup() {
   createCanvas(document.body.clientWidth * .98, document.documentElement.scrollHeight *.87);
    noLoop();
@@ -86,9 +92,19 @@ function draw() {
              a = random(200,255); // a is a random number between 200 - 255
               stroke("#c7eaf8");
               // stroke(r,g,b,a);
-              strokeWeight(.5);
+              let lineThickness = .5
+              if(layer.length > 30){
+                lineThickness = .4
+              }
+              if(layer.length > 50){
+                lineThickness = .15
+              }
+              if(layer.length > 100){
+                lineThickness = .05
+              }
+              strokeWeight(lineThickness);
               if(index !== layers.length-1){
-                line(node.x, node.y, node2.x, node2.y);
+                  line(node.x, node.y, node2.x, node2.y);
               }
               
            }
@@ -103,11 +119,14 @@ function draw() {
 function drawRow(nodes, numberLayer){
   let c = color('#c7eaf8');
   fill(c);
-  let size = 30
+  let size = height / 20
   let dist = 0.065;
-  if(nodes >= 15) size = 20, dist = .04;
+  if(nodes >= 15) size = height/35, dist = .04;
   if(nodes >22)dist = .03;
-  if(nodes> 30) size = 10, dist = .02;
+  if(nodes> 30) size = height/55, dist = .02;
+  if(nodes > 49)size = height / 75, dist = .015;
+  if(nodes > 70)size = height / 100, dist = .01;
+  if(nodes > 100)size = height/ 150, dist = .005;
   let layer = []
   let x = width / 20;
   let leftX = width;
